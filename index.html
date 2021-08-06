@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genshinキャラクター育成素材計算ツール</title>
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="character-setting">
+    <h2>キャラクター育成度</h2>
+    <p class="level-select">
+      Lv. <input class="level" type="number" min="1" max="90" id="character_lv_from" value="1">
+      <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
+      <input class="level" type="number" min="1" max="90" id="character_lv_to" value="90">
+    </p>
+
+    <h3>天賦 Lv.</h3>
+    <h4>通常攻撃</h4>
+    <p class="level-select">
+      Lv. <input class="level" type="number" min="1" max="10" id="kougeki_lv_from" value="1">
+      <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
+      <input class="level" type="number" min="1" max="10" id="kougeki_lv_to" value="10">
+    </p>
+    <h4>元素スキル</h4>
+    <p class="level-select">
+      Lv. <input class="level" type="number" min="1" max="10" id="skill_lv_from" value="1">
+      <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
+      <input class="level" type="number" min="1" max="10" id="skill_lv_to" value="10">
+    </p>
+    <h4>元素爆発</h4>
+    <p class="level-select">
+      Lv. <input class="level" type="number" min="1" max="10" id="bakuhatsu_lv_from" value="1">
+      <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
+      <input class="level" type="number" min="1" max="10" id="bakuhatsu_lv_to" value="10">
+    </p>
+    <div class="error-message" id="character_message"></div>
+  </div>
+
+  <div class="required-material">
+    <h2>必要素材</h2>
+    <h3>キャラクター Lv.</h3>
+    <div class="material-list">
+      <div class="material">
+        <img src="material-lv2.png" class="material-image" />
+        <div class="name">武器突破<br>素材 Lv.1</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv3.png" class="material-image" />
+        <div class="name">武器突破<br>素材 Lv.2</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv4.png" class="material-image" />
+        <div class="name">武器突破<br>素材 Lv.3</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv5.png" class="material-image" />
+        <div class="name">武器突破<br>素材 Lv.4</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv4.png" class="material-image" />
+        <div class="name">BOSS<br>ドロップ</div>
+        <div class="value">0</div>
+      </div>
+    </div>
+    <div class="material-list">
+      <div class="material">
+        <img src="material-lv1.png" class="material-image" />
+        <div class="name">敵<br>ドロップ</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv2.png" class="material-image" />
+        <div class="name">敵<br>ドロップ</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv3.png" class="material-image" />
+        <div class="name">敵<br>ドロップ</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv1.png" class="material-image" />
+        <div class="name">特産品</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv4.png" class="material-image" />
+        <div class="name">経験値本</div>
+        <div class="value">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv3.png" class="material-image" />
+        <div class="name">モラ</div>
+        <div class="value">0</div>
+      </div>
+    </div>
+
+    <h3>天賦 Lv.</h3>
+    <div class="material-list">
+      <div class="material">
+        <img src="material-lv2.png" class="material-image" />
+        <div class="name">天賦突破<br>素材 Lv.1</div>
+        <div class="value" id="talents_0">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv3.png" class="material-image" />
+        <div class="name">天賦突破<br>素材 Lv.2</div>
+        <div class="value" id="talents_1">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv4.png" class="material-image" />
+        <div class="name">天賦突破<br>素材 Lv.3</div>
+        <div class="value" id="talents_2">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv5.png" class="material-image" />
+        <div class="name">週BOSS<br>ドロップ</div>
+        <div class="value" id="talents_3">0</div>
+      </div>
+    </div>
+    <div class="material-list">
+      <div class="material">
+        <img src="material-lv1.png" class="material-image" />
+        <div class="name">敵<br>ドロップ</div>
+        <div class="value" id="talents_4">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv2.png" class="material-image" />
+        <div class="name">敵<br>ドロップ</div>
+        <div class="value" id="talents_5">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv3.png" class="material-image" />
+        <div class="name">敵<br>ドロップ</div>
+        <div class="value" id="talents_6">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv5.png" class="material-image" />
+        <div class="name">知恵の冠</div>
+        <div class="value" id="talents_7">0</div>
+      </div>
+      <div class="material">
+        <img src="material-lv3.png" class="material-image" />
+        <div class="name">モラ</div>
+        <div class="value" id="talents_8">0</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
