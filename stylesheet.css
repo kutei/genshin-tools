@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN";
+}
+
+a {
+  text-decoration: none;
+}
+
+.container { /* ブラウザ中央に配置 */
+  width: 900px;
+  margin: auto;
+}
+.container:after { /* clearfix設定 */
+  content:"";
+  display:block;
+  clear:both;
+}
+.character-setting {
+  width: 25%;
+  float: left;
+}
+.required-material {
+  width: auto;
+  float: right;
+}
+
+.level {
+  width: 40px;
+}
+.error-message {
+  color: red;
+}
+
+.material-list {
+}
+.material {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0px 0px 5px;
+  background-size: contain;
+}
+.material .name {
+  color: white;
+  position: absolute;
+  min-width: 90%;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+.material .value {
+  color: black;
+  position: absolute;
+  text-align: center;
+  top: 85%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+.material-image {
+  width: 100px;
+}
