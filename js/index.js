@@ -70,7 +70,6 @@ function calculate_levels() {
       num_wit3 = Math.ceil(accrual_exp / wit3_exp);
       required_materials[9] += num_wit3;
       required_materials[10] += num_wit3 * wit3_mora;
-      console.log("toppa", lv, accrual_exp, num_wit3, num_wit3 * wit3_mora);
       accrual_exp = 0;
       if (lv_to - 1 <= lv) break;
     }
@@ -79,7 +78,7 @@ function calculate_levels() {
   // 素材量をページに反映
   console.log("character level:", required_materials);
   for (let index = 0; index < required_materials.length; index++) {
-    $('#charalv_'+index).text(required_materials[index]);
+    $('#charalv_'+index).text(required_materials[index].toLocaleString());
   }
 
   return true;
@@ -144,7 +143,7 @@ function calculate_talents() {
   // 天賦素材量をページに反映
   console.log("talents:", total_talent_matrials);
   for (let index = 0; index < total_talent_matrials.length; index++) {
-    $('#talents_'+index).text(total_talent_matrials[index]);
+    $('#talents_'+index).text(total_talent_matrials[index].toLocaleString());
   }
 
   return true;
