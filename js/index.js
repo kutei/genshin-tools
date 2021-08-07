@@ -35,6 +35,13 @@ function character_ascension(from, to) {
   return required_materials;
 }
 
+function check_chara_lv(lv) {
+  if (0 < lv && lv <= 90) {
+    return true;
+  }
+  return false;
+}
+
 function calculate_levels() {
   const wit3_exp = 20000;
   const wit3_mora = 4000;
@@ -53,9 +60,8 @@ function calculate_levels() {
   const lv_from = parseInt($('#character_lv_from').val());
   const lv_to = parseInt($('#character_lv_to').val());
 
-  if (lv_from > lv_to) {
-    console.error('Invalid parameters.');
-    console.error("parameters(" + lv_from + "," + lv_to + ")");
+  if (lv_from > lv_to || ! check_chara_lv(lv_from) || ! check_chara_lv(lv_to)) {
+    console.error('Invalid parameters.(' + lv_from + ',' + lv_to + ')');
     return false;
   }
 
@@ -98,9 +104,8 @@ function up_talent(from, to) {
     [0, 0, 16, 2, 0, 0, 12, 1, 700000]
   ];
 
-  if (from > to) {
-    console.error('Invalid parameters.');
-    console.error("parameters(" + from + "," + to + ")");
+  if (from > to || ! check_talent_lv(from) || ! check_talent_lv(to)) {
+    console.error('Invalid parameters.(' + from + ',' + to + ')');
     throw new Error('Invalid parameters.');
   }
 
@@ -113,6 +118,13 @@ function up_talent(from, to) {
   });
 
   return required_materials;
+}
+
+function check_talent_lv(lv) {
+  if (0 < lv && lv <= 10) {
+    return true;
+  }
+  return false;
 }
 
 function calculate_talents() {
