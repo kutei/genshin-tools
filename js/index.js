@@ -70,14 +70,14 @@ function calculate_levels() {
 
   // レベル上げ素材の計算
   var accrual_exp = 0;
-  for (var lv = lv_from; ; lv++) {
+  for (var lv = lv_from; lv < lv_to; lv++) {
     accrual_exp += exp_table[lv - 1];
-    if (lv_to - 1 <= lv || ascension_level.includes(lv + 1)) {
+    if (lv == lv_to - 1 || ascension_level.includes(lv + 1)) {
+      // 最後のループ、または、突破時に必要素材数を計算
       num_wit3 = Math.ceil(accrual_exp / wit3_exp);
       required_materials[9] += num_wit3;
       required_materials[10] += num_wit3 * wit3_mora;
       accrual_exp = 0;
-      if (lv_to - 1 <= lv) break;
     }
   }
 
