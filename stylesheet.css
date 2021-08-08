@@ -68,3 +68,29 @@ a {
 .material-image {
   width: 100px;
 }
+
+@media screen and (max-width: 480px) {
+  .material-image {
+    width: 80px;
+  }
+  .container { /* ブラウザ中央に配置 */
+    display:block;
+    width: auto;
+    margin: 5px;
+  }
+  .character-setting {
+    width: auto;
+    float: auto;
+  }
+  .required-material {
+    width: auto;
+    float: auto;
+  }
+  .material {
+    font-size: 80%;
+  }
+  .level-setting > h4 {
+    min-width: 100px;
+    display: inline;
+  }
+}

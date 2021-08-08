@@ -24,31 +24,37 @@
 <div class="container">
   <div class="character-setting">
     <h2>キャラクター育成度</h2>
-    <p class="level-select">
+    <p class="level-selector">
       Lv. <input class="level" type="number" min="1" max="90" id="character_lv_from" value="1">
       <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
       <input class="level" type="number" min="1" max="90" id="character_lv_to" value="90">
     </p>
 
     <h3>天賦 Lv.</h3>
-    <h4>通常攻撃</h4>
-    <p class="level-select">
-      Lv. <input class="level" type="number" min="1" max="10" id="kougeki_lv_from" value="1">
-      <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
-      <input class="level" type="number" min="1" max="10" id="kougeki_lv_to" value="10">
-    </p>
-    <h4>元素スキル</h4>
-    <p class="level-select">
-      Lv. <input class="level" type="number" min="1" max="10" id="skill_lv_from" value="1">
-      <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
-      <input class="level" type="number" min="1" max="10" id="skill_lv_to" value="10">
-    </p>
-    <h4>元素爆発</h4>
-    <p class="level-select">
-      Lv. <input class="level" type="number" min="1" max="10" id="bakuhatsu_lv_from" value="1">
-      <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
-      <input class="level" type="number" min="1" max="10" id="bakuhatsu_lv_to" value="10">
-    </p>
+    <div class="level-setting">
+      <h4>通常攻撃</h4>
+      <p class="level-selector">
+        Lv. <input class="level" type="number" min="1" max="10" id="kougeki_lv_from" value="1">
+        <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
+        <input class="level" type="number" min="1" max="10" id="kougeki_lv_to" value="10">
+      </p>
+    </div>
+    <div class="level-setting">
+      <h4>元素スキル</h4>
+      <p class="level-selector">
+        Lv. <input class="level" type="number" min="1" max="10" id="skill_lv_from" value="1">
+        <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
+        <input class="level" type="number" min="1" max="10" id="skill_lv_to" value="10">
+      </p>
+    </div>
+    <div class="level-setting">
+      <h4>元素爆発</h4>
+      <p class="level-selector">
+        Lv. <input class="level" type="number" min="1" max="10" id="bakuhatsu_lv_from" value="1">
+        <span class="fa fa-long-arrow-right" aria-hidden="true" ></span>
+        <input class="level" type="number" min="1" max="10" id="bakuhatsu_lv_to" value="10">
+      </p>
+    </div>
     <div class="error-message" id="character_message"></div>
   </div>
 
